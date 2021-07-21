@@ -10,6 +10,21 @@ app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 
+app.get('/add-user', (req,res) => {
+    res.render('add-user')
+    
+})
+
+app.post('/add-user', (req, res) => {
+    let name = req.body.name;
+    let age = req.body.age;
+
+    console.log(name);
+    console.log(age);
+
+    res.status(200).send()
+})
+
 app.get('/users', (req, res) => {
     
     let users = [
@@ -17,6 +32,8 @@ app.get('/users', (req, res) => {
         {name: "Mary Doe", age: 32},
         {name: "Alex Lowe", age: 27}
     ]
+
+    users = [];
 
     res.render('users', {users: users})
 })
