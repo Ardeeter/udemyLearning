@@ -11,7 +11,17 @@ app.set('views', './views');
 app.set('view engine', 'mustache');
 
 app.get('/', (req, res) => {
-    res.render('index');
+
+    let user = {
+        name: "John Doe",
+        address: {
+            street: "789 Street",
+            city: "Houston",
+            state: "Texas"
+        },
+
+    }
+    res.render('index', user);
 })
 
 app.listen(PORT, () => {
