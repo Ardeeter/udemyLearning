@@ -2,61 +2,64 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const path = require('path');
+const userRoutes = require('./routes/users');
 const mustacheExpress = require('mustache-express');
 
 const VIEWS_PATH = path.join(__dirname, '/views');
 
-// http://localhost:3000/site.css
-app.use('/css',express.static("css"));
-
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+
+app.use('/users',userRoutes);
+
+// http://localhost:3000/site.css
+app.use('/css',express.static("css"));
 
 app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials', '.mustache'));
 app.set('views', VIEWS_PATH); 
 app.set('view engine', 'mustache');
 
-app.get('/add-user', (req,res) => {
-    res.render('add-user')
+// app.get('/add-user', (req,res) => {
+//     res.render('add-user')
     
-})
+// })
 
-app.post('/add-user', (req, res) => {
-    let name = req.body.name;
-    let age = req.body.age;
+// app.post('/add-user', (req, res) => {
+//     let name = req.body.name;
+//     let age = req.body.age;
 
-    console.log(name);
-    console.log(age);
+//     console.log(name);
+//     console.log(age);
 
-    res.status(200).send()
-})
+//     res.status(200).send()
+// })
 
-app.get('/users', (req, res) => {
+// app.get('/users', (req, res) => {
     
-    let users = [
-        {name: "John Doe", age: 34},
-        {name: "Mary Doe", age: 32},
-        {name: "Alex Lowe", age: 27}
-    ]
+//     let users = [
+//         {name: "John Doe", age: 34},
+//         {name: "Mary Doe", age: 32},
+//         {name: "Alex Lowe", age: 27}
+//     ]
 
-    users = [];
+//     users = [];
 
-    res.render('users', {users: users})
-})
+//     res.render('users', {users: users})
+// })
 
-app.get('/', (req, res) => {
+// app.get('/', (req, res) => {
 
-    let user = {
-        name: "John Doe",
-        address: {
-            street: "789 Street",
-            city: "Houston",
-            state: "Texas"
-        },
+//     let user = {
+//         name: "John Doe",
+//         address: {
+//             street: "789 Street",
+//             city: "Houston",
+//             state: "Texas"
+//         },
 
-    }
-    res.render('index', user);
-})
+//     }
+//     res.render('index', user);
+// })
 
 app.listen(PORT, () => {
     console.log("Listening on Port " + PORT);
