@@ -6,6 +6,9 @@ const mustacheExpress = require('mustache-express');
 
 const VIEWS_PATH = path.join(__dirname, '/views');
 
+// http://localhost:3000/site.css
+app.use('/css',express.static("css"));
+
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
