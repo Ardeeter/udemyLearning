@@ -237,7 +237,7 @@ class Movie:
 Elf = Movie("Elf", 2008, "English", 4.7)
 Grind = Movie("Grind", 2001, "English", 3.5)
 
-print(Elf._id)
-print(Grind._id)
+# print(Elf._id)
+# print(Grind._id)
 
 
