@@ -1,4 +1,5 @@
-import ExpenseItem from './components/ExpenseItem'
+
+import Expenses from './components/Expenses'
 
 function App() {
 
@@ -29,11 +30,7 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <ExpenseItem id={expenses[0].id} expenseDate={expenses[0].date} expenseTitle={expenses[0].title} expenseAmount={expenses[0].amount}/>
-      <ExpenseItem id={expenses[1].id} expenseDate={expenses[1].date} expenseTitle={expenses[1].title} expenseAmount={expenses[1].amount}/>
-      <ExpenseItem id={expenses[2].id} expenseDate={expenses[2].date} expenseTitle={expenses[2].title} expenseAmount={expenses[2].amount}/>
-      <ExpenseItem id={expenses[3].id} expenseDate={expenses[3].date} expenseTitle={expenses[3].title} expenseAmount={expenses[3].amount}/>
+      <Expenses expenses={expenses}/>
     </div>
   );
 }
