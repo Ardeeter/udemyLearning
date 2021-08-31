@@ -8,12 +8,6 @@ const ExpenseItem = (props) => {
     const [title, setTitle] = useState(props.expenseTitle); 
     console.log('ExpenseItem evaulated by React');
 
-    // const month = props.expenseDate.toLocaleString('en-US', { month: 'long' });
-
-    // const day = props.expenseDate.toLocaleString('en-US', { day: '2-digit' })
-
-    // const year = props.expenseDate.getFullYear();
-
     const clickHandler = () => {
         setTitle("Updated")
         console.log(title); 
